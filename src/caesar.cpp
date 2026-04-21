@@ -1,8 +1,6 @@
 #include <cctype>
-#include <fstream>
 #include <iostream>
 #include <string>
-#include <vector>
 
 using namespace std;
 
@@ -15,82 +13,46 @@ bool is_valid_message(const string &text) {
     return true;
 }
 
-string rail_fence_encrypt(const string &plaintext, int rails) {
-    if (rails <= 1 || plaintext.empty()) return plaintext;
-    vector<string> fence(rails, "");
-    int rail = 0;
-    int direction = 1;
-    for (char c : plaintext) {
-        fence[rail] += c;
-        rail += direction;
-        if (rail == rails - 1 || rail == 0) direction = -direction;
-    }
+char shift_char(char c, int shift) {
+    if (!isalpha(static_cast<unsigned char>(c))) return c;
+    char base = isupper(static_cast<unsigned char>(c)) ? 'A' : 'a';
+    shift %= 26;
+    if (shift < 0) shift += 26;
+    return static_cast<char>((c - base + shift) % 26 + base);
+}
+
+string caesar_encrypt(const string &plaintext, int shift) {
     string ciphertext;
-    for (const string &row : fence) ciphertext += row;
+    for (char c : plaintext) {
+        ciphertext += shift_char(c, shift);
+    }
     return ciphertext;
 }
 
-string rail_fence_decrypt(const string &ciphertext, int rails) {
-    if (rails <= 1 || ciphertext.empty()) return ciphertext;
-    vector<string> fence(rails, string(ciphertext.length(), '\n'));
-    int rail = 0;
-    int direction = 1;
-    for (int i = 0; i < ciphertext.length(); ++i) {
-        fence[rail][i] = '*';
-        rail += direction;
-        if (rail == rails - 1 || rail == 0) direction = -direction;
-    }
-    int index = 0;
-    for (int r = 0; r < rails; ++r) {
-        for (int c = 0; c < ciphertext.length(); ++c) {
-            if (fence[r][c] == '*' && index < ciphertext.length()) {
-                fence[r][c] = ciphertext[index++];
-            }
-        }
-    }
-    string plaintext;
-    rail = 0;
-    direction = 1;
-    for (int i = 0; i < ciphertext.length(); ++i) {
-        plaintext += fence[rail][i];
-        rail += direction;
-        if (rail == rails - 1 || rail == 0) direction = -direction;
-    }
-    return plaintext;
-}
-
-string read_message_from_file(const string &path) {
-    ifstream fin(path);
-    string line;
-    getline(fin, line);
-    return line;
+string caesar_decrypt(const string &ciphertext, int shift) {
+    return caesar_encrypt(ciphertext, -shift);
 }
 
 int main() {
-    cout << "=== Rail Fence Cipher Demo ===\n";
-    cout << "1. Encrypt\n2. Decrypt\n3. Read from file and encrypt\nChoose: ";
+    cout << "=== Caesar Cipher Demo ===\n";
+    cout << "1. Encrypt\n2. Decrypt\nChoose: ";
     int choice;
     cin >> choice;
     cin.ignore();
     string message;
-    int rails;
-    if (choice == 3) {
-        message = read_message_from_file("data/input.txt");
-        cout << "Message from file: " << message << "\n";
-    } else {
-        cout << "Enter message: ";
-        getline(cin, message);
-    }
-    cout << "Enter rails: ";
-    cin >> rails;
+    int shift;
+    cout << "Enter message: ";
+    getline(cin, message);
+    cout << "Enter key: ";
+    cin >> shift;
     if (!is_valid_message(message)) {
         cout << "Invalid input. Only letters and spaces are allowed.\n";
         return 0;
     }
-    if (choice == 1 || choice == 3) {
-        cout << "Ciphertext: " << rail_fence_encrypt(message, rails) << "\n";
+    if (choice == 1) {
+        cout << "Ciphertext: " << caesar_encrypt(message, shift) << "\n";
     } else if (choice == 2) {
-        cout << "Plaintext: " << rail_fence_decrypt(message, rails) << "\n";
+        cout << "Plaintext: " << caesar_decrypt(message, shift) << "\n";
     } else {
         cout << "Invalid choice.\n";
     }
