@@ -16,5 +16,4 @@
 - [X] Đã đọc dữ liệu từ `data/input.txt`
 
 ## Điều em học được từ bài lab
-Qua bài lab này, em hiểu rõ hơn cách hoạt động của Caesar Cipher và Rail Fence Cipher, đặc biệt là sự khác nhau giữa cách dịch chuyển ký tự và cách sắp xếp ký tự theo dạng zigzag. Em cũng học được cách xử lý chuỗi, kiểm tra đầu vào hợp lệ và đọc dữ liệu từ file trong C++.
-Khó khăn lớn nhất của em là phần giải mã Rail Fence Cipher vì phải xác định lại đúng vị trí zigzag trước khi khôi phục chuỗi gốc. Điều giúp em hiểu rõ hơn là vẽ thử đường đi của từng ký tự trên giấy và chạy từng bước bằng ví dụ ngắn. Nhờ đó em thấy rõ cách mã hóa và giải mã hoạt động trong thực tế.
+Bài lab giúp em hiểu cách hoạt động của các thuật toán mã hóa cổ điển như Caesar và Rail Fence, đồng thời biết cách thực hiện mã hóa và giải mã chuỗi. Em cũng rèn luyện kỹ năng xử lý chuỗi, kiểm tra dữ liệu đầu vào, đọc file và tổ chức chương trình C++ rõ ràng hơn. Qua đó, em nhận thấy các phương pháp mã hóa đơn giản có nhiều hạn chế, từ đó hiểu thêm về tầm quan trọng của bảo mật hiện đại.
