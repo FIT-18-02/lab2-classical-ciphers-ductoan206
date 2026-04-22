@@ -2,6 +2,9 @@
 # FIT4012 - Lab 2: Classical Ciphers
 
 ##  Thông tin sinh viên
+Họ và tên: Trần Đình Đức Toàn
+Lớp:CNTT-1802
+Mã sinh viên:1871020574
 
 ##  Trạng thái dự án
 - **Tiến độ:** Hoàn thành 100% yêu cầu (Q1 - Q8).
