@@ -28,8 +28,4 @@ Tìm hiểu và triển khai thuật toán mã hóa Caesar và Rail Fence, xử 
 - Kết quả đọc từ `data/input.txt`: Đọc và mã hóa thành công.
 
 ## 4. Kết luận
-Trong bài lab này, em đã hiểu và triển khai thành công hai thuật toán mã hóa cơ bản là Caesar Cipher và Rail Fence Cipher bằng C++. Thông qua quá trình thực hiện, em nắm được cách thức hoạt động của từng thuật toán, bao gồm cách dịch chuyển ký tự trong Caesar và cách sắp xếp ký tự theo dạng “zigzag” trong Rail Fence.
-
-Bên cạnh đó, em cũng đã xây dựng được chức năng kiểm tra tính hợp lệ của dữ liệu đầu vào, giúp chương trình hoạt động ổn định và tránh lỗi. Việc đọc dữ liệu từ file cũng được tích hợp thành công, giúp chương trình linh hoạt hơn trong xử lý dữ liệu thực tế.
-
-Kết quả kiểm thử cho thấy chương trình hoạt động đúng với các trường hợp mã hóa và giải mã, đảm bảo tính chính xác của thuật toán.
+Bài lab đã giúp em nắm vững cách triển khai và hoạt động của hai thuật toán mã hóa cổ điển là Caesar và Rail Fence trong C++. Chương trình hoạt động đúng với các trường hợp kiểm thử, xử lý tốt dữ liệu đầu vào và đọc file. Qua đó, em hiểu rõ hơn về quy trình xây dựng một chương trình mã hóa cơ bản, đồng thời nhận thấy hạn chế của các phương pháp này và tầm quan trọng của các kỹ thuật bảo mật hiện đại.
